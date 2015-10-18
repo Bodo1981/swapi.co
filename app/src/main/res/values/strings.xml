@@ -1,0 +1,11 @@
+<resources>
+  <string name="app_name">swapi.co</string>
+
+  <string name="tab_films">Films</string>
+  <string name="tab_people">People</string>
+  <string name="tab_planets">Planets</string>
+  <string name="tab_species">Species</string>
+  <string name="tab_starships">Starships</string>
+  <string name="tab_vehicles">Vehicles</string>
+
+</resources>
