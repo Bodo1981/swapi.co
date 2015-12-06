@@ -1,25 +1,11 @@
 package com.christianbahl.swapico.planets.model
 
-import com.christianbahl.swapico.base.loadmore.ILoadMoreResult
 import com.google.gson.annotations.SerializedName
 
 /**
  * @author Christian Bahl
  */
 interface IPlanetResponseData
-
-data class PlanetResult(val count: Int,
-                        val next: String?,
-                        val previous: String?,
-                        val results: MutableList<PlanetResponse>) : ILoadMoreResult {
-
-  override val loadMore: Boolean
-    get() = next?.isNotBlank() ?: false
-
-  override val adapterList: MutableList<Any>?
-    get() = results as MutableList<Any>
-
-}
 
 data class PlanetResponse(val name: String,
                           val diameter: String,
