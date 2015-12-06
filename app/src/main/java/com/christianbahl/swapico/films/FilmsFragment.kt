@@ -26,6 +26,6 @@ class FilmsFragment : BaseFragmentLoadMore<IFilmResponseData, FilmsView, FilmsPr
 
   override fun loadData(pullToRefresh: Boolean) = presenter.loadFilms(pullToRefresh)
 
-  override fun loadMore(loadMoreUrl: String?)  = presenter.loadMoreFilms(loadMoreUrlString, true)
+  override fun loadMore(loadMoreUrl: String?)  = presenter.loadMoreFilms(loadMoreUrl, true)
 
 }

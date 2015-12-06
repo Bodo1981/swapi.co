@@ -1,6 +1,7 @@
 package com.christianbahl.swapico.films.model
 
 import com.christianbahl.swapico.base.loadmore.ILoadMoreResult
+import com.google.gson.annotations.SerializedName
 
 /**
  * @author Christian Bahl
@@ -22,12 +23,10 @@ data class FilmResult(val count: Int,
 
 data class FilmResponse(val title: String,
                         val episodeId: Int,
-                        @com.google.gson.annotations.SerializedName(
-                            "opening_crawl") val openingCrawl: String,
+                        @SerializedName("opening_crawl") val openingCrawl: String,
                         val director: String,
                         val producer: String,
-                        @com.google.gson.annotations.SerializedName(
-                            "release_date") val releaseDate: String,
+                        @SerializedName("release_date") val releaseDate: String,
                         val species: List<String>,
                         val starships: List<String>,
                         val vehicles: List<String>,
