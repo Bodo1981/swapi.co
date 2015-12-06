@@ -11,8 +11,10 @@ import rx.Observable
  */
 interface SwapiApi {
 
-  @GET fun <M: Any?> url(@Url url: String): Observable<M>
-
+  // films
   @GET("films/?format=json") fun films(): Observable<FilmResult>
+
+  // people
   @GET("people/?format=json") fun people(): Observable<PeopleResult>
+  @GET fun loadMorePeople(@Url url: String): Observable<PeopleResult>
 }

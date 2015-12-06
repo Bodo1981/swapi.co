@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.christianbahl.appkit.core.common.view.CBMvpView
 import com.christianbahl.appkit.viewstate.fragment.CBFragmentMvpListRecyclerViewViewState
 import com.christianbahl.swapico.films.model.FilmResponse
+import com.github.salomonbrys.kodein.android.appKodein
 import com.hannesdorfmann.mosby.mvp.viewstate.lce.LceViewState
 import com.hannesdorfmann.mosby.mvp.viewstate.lce.data.RetainingLceViewState
 
@@ -22,7 +23,7 @@ class FilmsFragment : CBFragmentMvpListRecyclerViewViewState<FilmResponse, CBMvp
 
   override fun createViewState(): LceViewState<MutableList<FilmResponse>, CBMvpView<FilmResponse>>? = RetainingLceViewState()
 
-  override fun createPresenter(): FilmsPresenter? = FilmsPresenter()
+  override fun createPresenter(): FilmsPresenter? = FilmsPresenter(appKodein())
 
   override fun createAdapter(): FilmsAdapter? = FilmsAdapter(activity)
 

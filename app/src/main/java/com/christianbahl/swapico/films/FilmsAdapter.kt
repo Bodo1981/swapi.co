@@ -1,14 +1,14 @@
 package com.christianbahl.swapico.films
 
 import android.content.Context
+import com.christianbahl.swapico.base.BaseAdapter
 import com.christianbahl.swapico.films.delegates.FilmDelegate
 import com.christianbahl.swapico.films.model.FilmResponse
-import com.hannesdorfmann.adapterdelegates.ListDelegationAdapter
 
 /**
  * @author Christian Bahl
  */
-class FilmsAdapter(val context: Context) : ListDelegationAdapter<List<FilmResponse>>() {
+class FilmsAdapter(val context: Context) : BaseAdapter<FilmResponse>() {
 
   companion object {
     private val VIEW_TYPE_FILM = 0
