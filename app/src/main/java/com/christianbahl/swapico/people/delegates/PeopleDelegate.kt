@@ -8,7 +8,7 @@ import com.christianbahl.swapico.R
 import com.christianbahl.swapico.base.BaseDelegate
 import com.christianbahl.swapico.people.model.IPeopleResponseData
 import com.christianbahl.swapico.people.model.PeopleResponse
-import kotlinx.android.synthetic.row_single_text.view.row_single_text_text
+import kotlinx.android.synthetic.main.row_single_text.view.*
 
 /**
  * @author Christian Bahl

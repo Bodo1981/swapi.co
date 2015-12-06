@@ -1,12 +1,24 @@
 package com.christianbahl.swapico.films.model
 
+import com.christianbahl.swapico.base.loadmore.ILoadMoreResult
+
 /**
  * @author Christian Bahl
  */
+interface IFilmResponseData
+
 data class FilmResult(val count: Int,
-                      val next: String,
+                      val next: String?,
                       val previous: String,
-                      val results: List<FilmResponse>)
+                      val results: List<FilmResponse>) : ILoadMoreResult {
+
+  override val loadMore: Boolean
+    get() = next?.isNotBlank() ?: false
+
+  override val adapterList: MutableList<Any>?
+    get() = results as MutableList<Any>
+
+}
 
 data class FilmResponse(val title: String,
                         val episodeId: Int,
@@ -23,4 +35,4 @@ data class FilmResponse(val title: String,
                         val planets: List<String>,
                         val url: String,
                         val created: String,
-                        val edited: String)
+                        val edited: String) : IFilmResponseData

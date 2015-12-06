@@ -1,12 +1,11 @@
 package com.christianbahl.swapico.people
 
-import com.christianbahl.appkit.core.common.view.CBMvpView
+import com.christianbahl.swapico.base.loadmore.ILoadMoreMvpView
 import com.christianbahl.swapico.people.model.IPeopleResponseData
 
 /**
  * @author Christian Bahl
  */
-interface PeopleView : CBMvpView<IPeopleResponseData> {
+interface PeopleView : ILoadMoreMvpView<IPeopleResponseData> {
 
-  fun setLoadMoreUrl(loadMoreUrl: String?)
 }

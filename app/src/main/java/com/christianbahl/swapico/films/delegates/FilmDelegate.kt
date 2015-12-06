@@ -7,21 +7,22 @@ import android.view.ViewGroup
 import com.christianbahl.swapico.R
 import com.christianbahl.swapico.base.BaseDelegate
 import com.christianbahl.swapico.films.model.FilmResponse
-import kotlinx.android.synthetic.row_single_text.view.row_single_text_text
+import com.christianbahl.swapico.films.model.IFilmResponseData
+import kotlinx.android.synthetic.main.row_single_text.view.*
 
 /**
  * @author Christian Bahl
  */
-class FilmDelegate(viewType: Int, context: Context) : BaseDelegate<List<FilmResponse>>(viewType,
-                                                                                       context) {
+class FilmDelegate(viewType: Int, context: Context) : BaseDelegate<List<IFilmResponseData>>(viewType,
+    context) {
 
   override fun onCreateViewHolder(parent: ViewGroup?) =
       FilmViewHolder(inflater.inflate(R.layout.row_single_text, parent, false))
 
-  override fun isForViewType(items: List<FilmResponse>?, position: Int) = items?.get(
+  override fun isForViewType(items: List<IFilmResponseData>?, position: Int) = items?.get(
       position) is FilmResponse
 
-  override fun onBindViewHolder(items: List<FilmResponse>?, position: Int,
+  override fun onBindViewHolder(items: List<IFilmResponseData>?, position: Int,
                                 viewHolder: RecyclerView.ViewHolder?) {
     (viewHolder as FilmViewHolder).bindView(items?.get(position) as FilmResponse)
   }

@@ -25,8 +25,8 @@ dependencies {
   testCompile 'junit:junit:4.12'
 
   // Appkit
-  compile 'com.christianbahl.appkit:viewstate:2.0.6'
-  compile 'com.christianbahl.appkit:rx:2.0.6'
+  compile 'com.christianbahl.appkit:viewstate:2.0.8'
+  compile 'com.christianbahl.appkit:rx:2.0.8'
 
   // Kotlin
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
