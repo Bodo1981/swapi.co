@@ -5,6 +5,7 @@ import com.christianbahl.swapico.model.Result
 import com.christianbahl.swapico.people.model.PeopleResponse
 import com.christianbahl.swapico.planets.model.PlanetResponse
 import com.christianbahl.swapico.species.model.SpeciesResponse
+import com.christianbahl.swapico.starships.model.StarshipsResponse
 import com.christianbahl.swapico.vehicles.model.VehiclesResponse
 import retrofit.http.GET
 import retrofit.http.Url
@@ -30,6 +31,10 @@ interface SwapiApi {
   // species
   @GET("species/?format=json") fun species(): Observable<Result<SpeciesResponse>>
   @GET fun loadMoreSpecies(@Url url: String): Observable<Result<SpeciesResponse>>
+
+  // starships
+  @GET("starships/?format=json") fun starships(): Observable<Result<StarshipsResponse>>
+  @GET fun loadMoreStarships(@Url url: String): Observable<Result<StarshipsResponse>>
 
   // vehicles
   @GET("vehicles/?format=json") fun vehicles(): Observable<Result<VehiclesResponse>>

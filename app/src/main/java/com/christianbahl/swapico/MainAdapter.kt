@@ -8,6 +8,7 @@ import com.christianbahl.swapico.model.TabData
 import com.christianbahl.swapico.people.PeopleFragment
 import com.christianbahl.swapico.planets.PlanetFragment
 import com.christianbahl.swapico.species.SpeciesFragment
+import com.christianbahl.swapico.starships.StarshipsFragment
 import com.christianbahl.swapico.vehicles.VehiclesFragment
 
 /**
@@ -25,6 +26,7 @@ class MainAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
       1 -> return PeopleFragment()
       2 -> return PlanetFragment()
       3 -> return SpeciesFragment()
+      4 -> return StarshipsFragment()
       5 -> return VehiclesFragment()
       else -> return FilmsFragment()
     }
