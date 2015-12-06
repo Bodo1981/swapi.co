@@ -1,11 +1,12 @@
-package com.christianbahl.swapico.base.loadmore
+package com.christianbahl.swapico.list.rx
 
+import com.christianbahl.swapico.list.model.ILoadMoreList
 import rx.functions.Func1
 
 /**
  * @author Christian Bahl
  */
-class AddLoadMore<M: ILoadMoreResult> : Func1<M, M> {
+class AddLoadMore<M: ILoadMoreList> : Func1<M, M> {
 
   override fun call(t: M): M {
     if (t.loadMore) {

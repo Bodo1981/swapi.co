@@ -10,7 +10,6 @@ class LoadMoreScrollListener(val layoutManager: LinearLayoutManager, val onLoadM
 
   companion object {
     private val ITEMS_BEFORE_LAST_ITEM = 3
-    private val TAG = LoadMoreScrollListener::class.java.canonicalName
   }
 
   public var isLoading: Boolean = false
@@ -22,6 +21,7 @@ class LoadMoreScrollListener(val layoutManager: LinearLayoutManager, val onLoadM
     val totalItemCount = layoutManager.itemCount
 
     if (!isLoading && totalItemCount <= (lastVisibleItem + ITEMS_BEFORE_LAST_ITEM)) {
+      isLoading = true
       onLoadMore()
     }
   }
