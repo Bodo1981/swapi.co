@@ -36,8 +36,10 @@ dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   compile "org.jetbrains.anko:anko-sdk15:$ankoVersion"
 
-  // Kodein (Dependency Injection)
-  compile 'com.github.salomonbrys.kodein:kodein-android:2.3.1'
+  // Dagger 2
+  compile "com.google.dagger:dagger:2.0.2"
+  kapt "com.google.dagger:dagger-compiler:2.0.2"
+  provided "org.glassfish:javax.annotation:10.0-b28"
 
   // Retrofit
   compile "com.squareup.retrofit:retrofit:$retrofitVersion"

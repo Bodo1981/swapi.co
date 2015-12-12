@@ -1,5 +1,8 @@
 package com.christianbahl.swapico.list.model
 
+import android.os.Parcelable
+import org.jetbrains.anko.db.TEXT
+
 /**
  * @author Christian Bahl
  */
@@ -21,5 +24,5 @@ data class ListModel(val listData: List<ListItem>,
 }
 
 data class ListItem(val text: String = "",
-                    val detailsUrl: String = "",
+                    val url: String = "",
                     val type: ListItemType = ListItemType.TEXT)
