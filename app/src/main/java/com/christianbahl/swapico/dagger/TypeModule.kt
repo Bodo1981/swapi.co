@@ -1,5 +1,6 @@
 package com.christianbahl.swapico.list
 
+import com.christianbahl.swapico.dagger.Activity
 import com.christianbahl.swapico.list.model.ListType
 import dagger.Module
 import dagger.Provides
@@ -7,7 +8,7 @@ import dagger.Provides
 /**
  * @author Christian Bahl
  */
-@Module class ListModule(val listType: ListType) {
+@Module class TypeModule(val listType: ListType) {
 
-  @Provides fun provideListType() = listType
+  @Provides @Activity fun provideListType() = listType
 }

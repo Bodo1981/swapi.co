@@ -23,4 +23,12 @@ class StarshipsResponse(override val name: String,
                         val pilots: List<String>,
                         override val url: String,
                         val created: String,
-                        val edited: String) : IListData
+                        val edited: String) : IListData {
+
+  override val displayData: Map<String, String>?
+    get() = mapOf("Title" to name, "Model" to model, "Starship class" to starshipClass,
+        "Manufaturer" to manufacturer, "Cost in credits" to costInCredits, "Length" to length,
+        "Crew" to crew, "Passengers" to passengers, "Max Atmosphering Speed" to maxAtmospheringSpeed,
+        "Hyperdrive rating" to hyperdriveRating, "Mglt" to mglt, "Cargo capacity" to cargoCapacity,
+        "Consumables" to consumables)
+}

@@ -6,6 +6,7 @@ package com.christianbahl.swapico.model
 interface IListData {
   val name: String
   val url: String
+  val displayData: Map<String, String>?
 }
 
 open class Result<M : IListData>(val count: Int,

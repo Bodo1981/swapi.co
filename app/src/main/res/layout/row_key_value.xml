@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/default_horizontal_margin"
+    android:paddingRight="@dimen/default_horizontal_margin"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+  <TextView
+      android:id="@+id/key"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="top"
+      android:layout_marginTop="5dp"
+      android:layout_marginRight="6dp"
+      android:layout_marginEnd="6dp"
+      tools:text="Episoden ID"
+      style="@style/TextAppearance.AppCompat.Medium"/>
+
+  <TextView
+      android:id="@+id/value"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_gravity="bottom"
+      android:gravity="end|bottom"
+      tools:text="sfdsfsdfs dsf fsdfsfsd"
+      style="@style/TextAppearance.AppCompat.Large"/>
+
+</LinearLayout>

@@ -14,7 +14,7 @@ import org.jetbrains.anko.onClick
 /**
  * @author Christian Bahl
  */
-class TextDelegate(viewType: Int, context: Context, val callback: (url: String) -> Unit) : BaseDelegate<List<ListItem>>(viewType,
+class TextDelegate(viewType: Int, context: Context, val callback: (detailsId: Int) -> Unit) : BaseDelegate<List<ListItem>>(viewType,
     context) {
 
   override fun onCreateViewHolder(parent: ViewGroup?) =
@@ -27,14 +27,20 @@ class TextDelegate(viewType: Int, context: Context, val callback: (url: String) 
     (viewHolder as FilmViewHolder).bindView(items?.get(position))
   }
 
-  class FilmViewHolder(itemView: View, val callback: (url: String) -> Unit) : RecyclerView.ViewHolder(itemView) {
+  class FilmViewHolder(itemView: View, val callback: (detailsId: Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
     public fun bindView(listItem: ListItem?) {
       itemView.row_single_text_text.text = listItem?.text
 
       if (listItem != null && listItem.url.isNotBlank()) {
-        itemView.onClick { callback(listItem.url) }
+        itemView.onClick { callback(pathId(listItem.url)) }
       }
+    }
+
+    private fun pathId(url: String): Int {
+      val fixedUrl = if (url.endsWith("/")) url.substring(0, url.length - 1) else url
+      val urlSplit = fixedUrl.split("/")
+      return urlSplit[urlSplit.size - 1].toInt()
     }
   }
 }

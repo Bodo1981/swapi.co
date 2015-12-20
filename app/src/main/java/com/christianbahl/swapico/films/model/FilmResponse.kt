@@ -23,4 +23,10 @@ class FilmResponse(val title: String,
 
   override val name: String
     get() = title
+
+  override val displayData: Map<String, String>?
+    get() = mapOf("Title" to title, "Episode ID" to episodeId.toString(),
+        "Opening Crawl" to openingCrawl, "Director" to director, "Producer" to producer,
+        "Release date" to releaseDate)
+
 }

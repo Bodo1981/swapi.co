@@ -20,4 +20,11 @@ class PlanetsResponse(override val name: String,
                       val films: List<String>,
                       override val url: String,
                       val created: String,
-                      val edited: String) : IListData
+                      val edited: String) : IListData {
+
+  override val displayData: Map<String, String>?
+    get() = mapOf("Title" to name, "Diameter" to diameter, "Rotation period" to rotationPeriod,
+        "Gender" to gender, "Orbital period" to orbitalPeriod, "Gravity" to gravity,
+        "Population" to population, "Climate" to climate, "Terrain" to terrain,
+        "Surface water" to surfaceWater)
+}

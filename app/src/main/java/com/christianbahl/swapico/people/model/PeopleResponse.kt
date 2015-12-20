@@ -21,4 +21,9 @@ class PeopleResponse(override val name: String,
                      val vehicles: List<String>,
                      override val url: String,
                      val created: String,
-                     val edited: String) : IListData
+                     val edited: String) : IListData {
+
+  override val displayData: Map<String, String>?
+    get() = mapOf("Title" to name, "Birth year" to birthYear, "Eye color" to eyeColor,
+        "Gender" to gender, "Height" to height, "Mass" to mass, "Skin color" to skinColor)
+}

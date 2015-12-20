@@ -3,10 +3,10 @@ package com.christianbahl.swapico.list
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import android.widget.Toast
 import com.christianbahl.appkit.viewstate.fragment.CBFragmentMvpListRecyclerViewViewState
 import com.christianbahl.swapico.App
 import com.christianbahl.swapico.base.loadmore.LoadMoreScrollListener
+import com.christianbahl.swapico.details.DetailsActivity
 import com.christianbahl.swapico.list.model.ListItem
 import com.christianbahl.swapico.list.model.ListType
 import com.hannesdorfmann.fragmentargs.FragmentArgs
@@ -22,7 +22,7 @@ import com.hannesdorfmann.mosby.mvp.viewstate.lce.data.RetainingLceViewState
 class ListFragment : CBFragmentMvpListRecyclerViewViewState<ListItem, ListView, ListPresenter, ListAdapter>(), ListView {
 
   lateinit private var loadMoreScrollListener: LoadMoreScrollListener
-  lateinit private var listComponent: ListComponent
+  lateinit private var typeComponent: TypeComponent
 
   private var listToRestore: MutableList<ListItem>? = null
   private var hasNextPage: Boolean = false;
@@ -37,8 +37,8 @@ class ListFragment : CBFragmentMvpListRecyclerViewViewState<ListItem, ListView, 
     FragmentArgs.inject(this)
 
     val app = activity.applicationContext as App
-    listComponent = DaggerListComponent.builder()
-        .listModule(ListModule(listType))
+    typeComponent = DaggerTypeComponent.builder()
+        .typeModule(TypeModule(listType))
         .netComponent(app.netComponent()).build()
   }
 
@@ -57,10 +57,10 @@ class ListFragment : CBFragmentMvpListRecyclerViewViewState<ListItem, ListView, 
 
   override fun getData(): MutableList<ListItem>? = listToRestore
 
-  override fun createPresenter(): ListPresenter? = listComponent.listPresenter()
+  override fun createPresenter(): ListPresenter? = typeComponent.listPresenter()
 
   override fun createAdapter(): ListAdapter? = ListAdapter(activity) {
-    Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
+    startActivity(DetailsActivity.getStartIntent(activity, listType, it))
   }
 
   override fun loadData(pullToRefresh: Boolean) = presenter.loadData(nextPage, pullToRefresh)

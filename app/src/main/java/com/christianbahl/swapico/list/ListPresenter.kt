@@ -2,7 +2,6 @@ package com.christianbahl.swapico.list
 
 import com.christianbahl.swapico.api.SwapiApi
 import com.christianbahl.swapico.base.BaseLceRxPresenter
-import com.christianbahl.swapico.dagger.Activity
 import com.christianbahl.swapico.list.model.ListItem
 import com.christianbahl.swapico.list.model.ListModel
 import com.christianbahl.swapico.list.model.ListType
@@ -16,7 +15,7 @@ import javax.inject.Inject
 /**
  * @author Christian Bahl
  */
-class ListPresenter @Inject constructor(@Activity swapiApi: SwapiApi, val type: ListType) : BaseLceRxPresenter<ListView, List<ListItem>>(swapiApi) {
+class ListPresenter @Inject constructor(swapiApi: SwapiApi, val type: ListType) : BaseLceRxPresenter<ListView, List<ListItem>>(swapiApi) {
 
   public fun loadData(page: Int, pullToRefresh: Boolean) {
     when (type) {
